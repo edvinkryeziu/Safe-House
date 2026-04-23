@@ -3,7 +3,7 @@
 
 <img width="500" height="300" alt="ProceduralLegShowcase" src="https://github.com/user-attachments/assets/753f8fc0-98bf-4426-ac2b-76724902567c" />
 <img width="500" height="300" alt="InventoryShowcase" src="https://github.com/user-attachments/assets/4726152c-d7c9-4f2d-ac0d-40a4372a5540" />
-<img width="800" height="449" alt="ChaseShowcase" src="https://github.com/user-attachments/assets/be266df4-136a-4e54-a8f8-ea3b79f23700" />
+<img width="500" height="300" alt="ChaseShowcase" src="https://github.com/user-attachments/assets/be266df4-136a-4e54-a8f8-ea3b79f23700" />
 
 ---
 
