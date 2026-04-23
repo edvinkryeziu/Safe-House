@@ -1,7 +1,7 @@
 # Safe House
 > A first-person horror game built in Unity where you are hunted by a procedurally animated spider creature through a dark forest. Your only safety lies in the scattered houses and shelters across the map.
 
-![Procedural Legs]"https://github.com/user-attachments/assets/3f8f7917-ab25-4262-badb-2fafc1b42896"
+<img width="800" height="449" alt="ProceduralLegShowcase" src="https://github.com/user-attachments/assets/753f8fc0-98bf-4426-ac2b-76724902567c" />
 ![Inventory System](PUT GIF LINK HERE)
 ![Spider Chase](PUT GIF LINK HERE)
 
