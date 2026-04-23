@@ -20,7 +20,7 @@ Safe House is a survival horror game developed in Unity using C#. The game featu
 - **Interaction System** — interface-driven interaction for doors, pickable items, notes and weapons
 - **Equipment System** — dynamic item equipping with weapon sway, attack animations and item-specific behaviour via IUsable interface
 - **First Person Controller** — smooth movement, camera look, stamina system with cooldown, head bob and footstep audio
-- **Note/Document System** — in-world readable notes with typewriter text effect and optional inventory pickup
+- **Note/Document System** — in-world readable notes and optional inventory pickup
 - **Settings System** — resolution, fullscreen, graphics quality and audio volume with PlayerPrefs persistence
 - **Trigger Zone System** — modular UnityEvent-based trigger zones for tutorials, cutscenes and world events
 
