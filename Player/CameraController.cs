@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController Instance {get; private set;}
     private InputSystem_Actions InputSystemActions;
     public float sensitivity;
     public float cameraClampMax;
@@ -25,6 +26,12 @@ public class CameraController : MonoBehaviour
     float xRotation;
     void Awake()
     {
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         InputSystemActions = new InputSystem_Actions();
         _playerController = GetComponentInParent<PlayerController>();
     }
@@ -34,6 +41,7 @@ public class CameraController : MonoBehaviour
         StartPosition = transform.localPosition;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sensitivity = PlayerPrefs.GetFloat("Sensitivity", 0.1f);
     }
 
     // Update is called once per frame
@@ -66,6 +74,12 @@ public class CameraController : MonoBehaviour
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition,StartPosition, Time.deltaTime * smoothSpeed);
         }
+    }
+
+    public void SetSensitivity(float value)
+    {
+        sensitivity = value/100;
+        PlayerPrefs.SetFloat("Sensitivity", value/100);
     }
 
     void OnEnable()

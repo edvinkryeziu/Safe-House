@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance {get; private set;}
     public InventorySlot[] slots;
     private InputSystem_Actions InputSystemActions;
-    private int currentSlotIndex;
+    public int currentSlotIndex {get; private set;}
     public static event Action<ItemData> OnSelectChange;
     private bool inventoryOpened;
     private ItemData _heldItem;
@@ -16,9 +17,17 @@ public class InventoryUI : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
         InputSystemActions = new InputSystem_Actions();
         inventoryOpened = false;
     }
+
+    
 
     private void Update()
     {
@@ -164,7 +173,7 @@ public class InventoryUI : MonoBehaviour
         
     }
     // Subscribed to OnSlotDrop (when right clicking on item in inventory)
-    private void DropFromSlot(InventorySlot slot)
+    public void DropFromSlot(InventorySlot slot)
     {
         InventorySystem.Instance.DropItem(slot._CurrentItem);
         slot.ClearSlot();
@@ -173,6 +182,12 @@ public class InventoryUI : MonoBehaviour
         {
             OnSelectChange?.Invoke(null);
         }
+    }
+
+    public void ConsumeFromSlot(InventorySlot slot)
+    {
+        InventorySystem.Instance.RemoveItem(slot._CurrentItem);
+        slot.ClearSlot();
     }
 
     void OnEnable()

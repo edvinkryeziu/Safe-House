@@ -22,6 +22,7 @@ public static class GameState
     {
         bool anyUIOpen = IsUIOpen || IsInventoryOpen;
         Time.timeScale = anyUIOpen ? 0 : 1;
+        AudioListener.pause = anyUIOpen ? true : false;
         Cursor.lockState = anyUIOpen ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = anyUIOpen;
     }

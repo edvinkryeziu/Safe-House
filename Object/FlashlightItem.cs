@@ -6,6 +6,7 @@ public class FlashlightItem : MonoBehaviour, IUsable
     private ItemData flashData;
     public void Use()
     {
+        if (GameState.IsInventoryOpen || GameState.IsUIOpen) return;
         flashLight.gameObject.SetActive(!flashLight.gameObject.activeSelf);
     }
 }

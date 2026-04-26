@@ -64,6 +64,13 @@ public class InventorySystem : MonoBehaviour
         
     }
 
+    public void RemoveItem(ItemData item)
+    {
+
+        _items.Remove(item);
+
+    }
+
     public void DropItem(ItemData item)
     {
         _items.Remove(item);

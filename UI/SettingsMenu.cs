@@ -9,6 +9,8 @@ public class SettingsMenu : MonoBehaviour
     public SliderManager masterVolume;
     public SliderManager sfxVolume;
     public SliderManager musicVolume;
+    public SliderManager brightnessSlider;
+    public SliderManager sensitivitySlider;
     public CustomDropdown resolutionDropDown;
     public CustomDropdown qualityDropDown;
     public Sprite resolutionDropDownSprite;
@@ -25,8 +27,12 @@ public class SettingsMenu : MonoBehaviour
     void Start()
     {
         // Set volume so it matches start slider
-        float volume = Mathf.Max(masterVolume.mainSlider.value/100f,0.0001f);
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        if (audioMixer)
+        {
+            float volume = Mathf.Max(masterVolume.mainSlider.value/100f,0.0001f);
+            audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        }
+        
 
         // Fullscreen
         isFullscreen = true;
@@ -63,6 +69,17 @@ public class SettingsMenu : MonoBehaviour
         float volume = Mathf.Max(musicVolume.mainSlider.value/100f, 0.0001f);
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
         musicVolumeFloat = volume;
+    }
+
+    public void OnBrightnessChange()
+    {
+        PlayerPrefs.SetFloat("Brightness", brightnessSlider.mainSlider.value);
+        GameSettings.Instance.SetBrightness(brightnessSlider.mainSlider.value);
+    }
+
+    public void OnSensitivityChange()
+    {
+        PlayerPrefs.SetFloat("Sensitivity", sensitivitySlider.mainSlider.value/100);
     }
 
     private void ResolutionPopulation()

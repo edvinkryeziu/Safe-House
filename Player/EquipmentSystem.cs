@@ -50,8 +50,6 @@ public class EquipmentSystem : MonoBehaviour
             handOffset.y = Mathf.Clamp(handOffset.y,startHandPosition.y - maxSwayAmount,startHandPosition.y + maxSwayAmount);
 
             handPosition.localPosition = Vector3.Lerp(handPosition.localPosition,handOffset, Time.deltaTime * swaySpeed);
-
-            Debug.Log($"Offset: {handOffset}, Hand: {handPosition.localPosition}");
         }
         else
         {
